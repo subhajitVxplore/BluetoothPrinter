@@ -263,14 +263,6 @@ public class MainActivity extends AppCompatActivity {
             // the text typed by the user
             String msg = myTextbox.getText().toString();
             msg += "\n";
-//--------------------------------------------------------------------------
-
-            //Toast.makeText(this,""+msg.getBytes(),Toast.LENGTH_SHORT).show();
-
-           // byte[] buffer = new byte[1024];
-
-
-
 
 
             if (msg!=null) {
@@ -287,19 +279,11 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
-  //-----------------------------------------------------------------------------
 
-
-            //mmOutputStream.write(msg.getBytes());
-
-            // tell the user data were sent
-            //myLabel.setText("Data sent.");
-//-----------------------------------------------------
             if(mmOutputStream!=null){
-               // Toast.makeText(this,"mmOutputStream=="+mmOutputStream,Toast.LENGTH_SHORT).show();
                 myLabel.setText("Data sent.");
             }
-//--------------------------------------------------------
+
         } catch (Exception e) {
             e.printStackTrace();
         }
