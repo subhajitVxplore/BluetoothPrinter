@@ -265,14 +265,41 @@ public class MainActivity extends AppCompatActivity {
             msg += "\n";
 //--------------------------------------------------------------------------
 
+            //Toast.makeText(this,""+msg.getBytes(),Toast.LENGTH_SHORT).show();
+
+           // byte[] buffer = new byte[1024];
+
+
+
+
+
+            if (msg!=null) {
+                byte[] msgBuffer = msg.getBytes();
+                try {
+                    mmOutputStream = mmSocket.getOutputStream();
+                } catch (IOException e) {
+                    //  errorExit("Fatal Error", "in sendData() input and output stream creation failed:" + e.getMessage() + ".");
+
+                }
+                try {
+                    mmOutputStream.write(msgBuffer);
+                } catch (IOException e) {
+                }
+            }
+
   //-----------------------------------------------------------------------------
 
 
-           // mmOutputStream.write(msg.getBytes());
+            //mmOutputStream.write(msg.getBytes());
 
             // tell the user data were sent
-            myLabel.setText("Data sent.");
-
+            //myLabel.setText("Data sent.");
+//-----------------------------------------------------
+            if(mmOutputStream!=null){
+               // Toast.makeText(this,"mmOutputStream=="+mmOutputStream,Toast.LENGTH_SHORT).show();
+                myLabel.setText("Data sent.");
+            }
+//--------------------------------------------------------
         } catch (Exception e) {
             e.printStackTrace();
         }
